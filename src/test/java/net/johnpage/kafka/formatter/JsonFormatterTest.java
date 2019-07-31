@@ -1,8 +1,8 @@
 package net.johnpage.kafka.formatter;
 
-import org.apache.log4j.Category;
-import org.apache.log4j.Priority;
-import org.apache.log4j.spi.LoggingEvent;
+import com.pega.apache.log4j.Category;
+import com.pega.apache.log4j.Priority;
+import com.pega.apache.log4j.spi.LoggingEvent;
 import org.junit.Test;
 
 import java.util.Properties;

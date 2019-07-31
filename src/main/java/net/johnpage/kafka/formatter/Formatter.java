@@ -1,6 +1,6 @@
 package net.johnpage.kafka.formatter;
 
-import org.apache.log4j.spi.LoggingEvent;
+import com.pega.apache.log4j.spi.LoggingEvent;
 
 import java.util.Properties;
 

@@ -2,8 +2,8 @@ package net.johnpage.kafka;
 
 import net.johnpage.kafka.mock.MockKafkaProducer;
 import org.apache.kafka.clients.producer.ProducerRecord;
-import org.apache.log4j.Level;
-import org.apache.log4j.Logger;
+import com.pega.apache.log4j.Level;
+import com.pega.apache.log4j.Logger;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;

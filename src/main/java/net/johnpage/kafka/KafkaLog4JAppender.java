@@ -4,8 +4,8 @@ import net.johnpage.kafka.formatter.Formatter;
 import net.johnpage.kafka.formatter.JsonFormatter;
 import org.apache.kafka.clients.producer.Producer;
 import org.apache.kafka.clients.producer.ProducerRecord;
-import org.apache.log4j.AppenderSkeleton;
-import org.apache.log4j.spi.LoggingEvent;
+import com.pega.apache.log4j.AppenderSkeleton;
+import com.pega.apache.log4j.spi.LoggingEvent;
 
 import java.io.*;
 import java.util.Enumeration;

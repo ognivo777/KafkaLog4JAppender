@@ -4,7 +4,7 @@
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <groupId>net.johnpage</groupId>
-  <artifactId>kafka-log4j-appender</artifactId>
+  <artifactId>kafka-pega-log4j-appender</artifactId>
   <version>1.1</version>
   <developers>
     <developer>
@@ -15,10 +15,17 @@
   </developers>
   <dependencies>
     <dependency>
-      <groupId>log4j</groupId>
-      <artifactId>log4j</artifactId>
-      <version>1.2.8</version>
+      <groupId>com.pega</groupId>
+      <artifactId>prlogging</artifactId>
+      <version>1.0</version>
+      <scope>system</scope>
+      <systemPath>${project.basedir}/lib/prlogging-1.2.14.jar</systemPath>
     </dependency>
+<!--    <dependency>-->
+<!--      <groupId>log4j</groupId>-->
+<!--      <artifactId>log4j</artifactId>-->
+<!--      <version>1.2.8</version>-->
+<!--    </dependency>-->
     <dependency>
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>

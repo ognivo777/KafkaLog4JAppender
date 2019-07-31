@@ -1,7 +1,7 @@
 package net.johnpage.kafka.formatter;
 
-import org.apache.log4j.spi.LocationInfo;
-import org.apache.log4j.spi.LoggingEvent;
+import com.pega.apache.log4j.spi.LocationInfo;
+import com.pega.apache.log4j.spi.LoggingEvent;
 import org.json.simple.JSONObject;
 
 import java.util.Enumeration;
