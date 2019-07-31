@@ -15,6 +15,43 @@
 ```
 This is a Pega Log4J v1 Appender integrated with a Kafka Producer. It streams events as they occur to a remote Kafka queue. 
 
+### Sample LogStach Configuration
+```
+input {
+  kafka {
+    bootstrap_servers => "127.0.0.1:9092"
+    topics => ["pega-logs"]
+    codec => json
+  }	
+}
+
+output {
+  stdout { codec => rubydebug }
+}
+```
+Example of result events:
+```ruby
+{
+    "@logtimestamp" => "2019-07-31T17:17:16.304Z",
+            "class" => "?",
+       "pegathread" => "STANDARD",
+      "source_host" => "srv001",
+             "file" => "?",
+         "src-node" => "nodename",
+       "@timestamp" => 2019-07-31T17:17:16.304Z,
+      "logger_name" => "com.pega.pegarules.search.internal.PRSearchProviderImpl",
+           "src-vm" => "",
+           "method" => "?",
+          "ls_type" => "pega-rules",
+         "@version" => 1,
+      "line_number" => "?",
+          "src-env" => "",
+      "sourceLabel" => "pega-live",
+            "level" => "INFO",
+          "message" => "Initialized full text search functionality for this node. Full-text search enabled for node F3962772FF1FEECF62815A313B27FC74",
+      "thread_name" => "StartupTaskUtil INITIALIZE_SEARCH"
+}
+```
 
 ### Building
 ```
