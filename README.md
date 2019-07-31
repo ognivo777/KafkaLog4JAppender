@@ -60,7 +60,7 @@ mvn clean install
 
 ### Usage
 
-1. Download the *kafka-pega-log4j-appender-1.1.jar* and import in pega using Application->Distribution->Import wizard.
+1. [Download](https://github.com/ognivo777/KafkaLog4JAppender/releases) the *kafka-pega-log4j-appender-1.1.jar* and import in pega using Application->Distribution->Import wizard.
 2. Edit the *prlogging.xml* configuration file.
 3. Restart pega application server.
 
