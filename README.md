@@ -60,10 +60,9 @@ mvn clean install
 
 ### Usage
 
-1. Place the *kafka-log4j-appender-1.0.jar* in the application *"lib"* directory.
-2. Download and place the *kafka-clients-0.10.0.0.jar* and the *json-simple-1.1.1.jar* into the application *"lib"* directory.
-3. Edit the log4j configuration file.
-4. Ensure a Kafka Producer properties file is available at the location configured in the lo4j configuration file.
+1. Download the *kafka-pega-log4j-appender-1.1.jar* and import in pega using Application->Distribution->Import wizard.
+2. Edit the *prlogging.xml* configuration file.
+3. Restart pega application server.
 
 ### Kafka Producer Properties
 
