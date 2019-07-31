@@ -15,7 +15,10 @@ public class ProducerFactory{
   }
   public static Producer getInstance() {
     if(producer==null){
+      ClassLoader contextClassLoader = Thread.currentThread().getContextClassLoader();
+      Thread.currentThread().setContextClassLoader(null);
       producer = new KafkaProducer(ProducerFactory.properties);
+      Thread.currentThread().setContextClassLoader(contextClassLoader);
     }
     return producer;
   }
