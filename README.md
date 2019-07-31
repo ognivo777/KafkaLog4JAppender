@@ -1,18 +1,20 @@
-# Kafka Log4J Appender
+# Kafka Log4J Appender changed for Pega PRPC 7
 
-## A log4j Appender that streams log events to a Kafka topic. 
+## A Pega log4j Appender that streams log events to a Kafka topic. 
 
 ### Configuration
 
 ```xml
-<appender name="KafkaStream" class="net.johnpage.kafka.KafkaLog4JAppender">
-		<param name="Topic" value="a-topic" />
-		<param name="KafkaProducerPropertiesFilePath" value="/kafka-producer.properties" />
-</appender>
+	<appender name="KafkaStream" class="net.johnpage.kafka.KafkaLog4JAppender">
+		<param name="Topic" value="pega-logs"/>
+		<param name="kafkaProducerProperties" value="bootstrap.servers=127.0.0.1:9092&#10;value.serializer=org.apache.kafka.common.serialization.StringSerializer&#10;key.serializer=org.apache.kafka.common.serialization.StringSerializer&#10;compression.type=snappy&#10;client.id=pega-pe-722"/>
+		<layout class="com.pega.pegarules.priv.LogLayoutJSON">
+			<param name="userFields" value="sourceLabel:pega-live,ls_type:pega-rules,src-vm:${hostName},src-node:nodename,src-env:${sys:pega.appservername}"/>
+		</layout>
+	</appender>
 ```
-This is a Log4J Appender integrated with a Kafka Producer. It streams events as they occur to a remote Kafka queue. 
-Kafka 0.70 has a Log4j appender, but newer versions omit an Appender. This Appender is intended to be used with the latest version of Kafka (v0.10) and the legacy version of Log4J (v1.28). 
-Use the [Log4j 2 KafkaAppender](http://logging.apache.org/log4j/2.x/manual/appenders.html#KafkaAppender) if your project uses Log4J 2.
+This is a Pega Log4J v1 Appender integrated with a Kafka Producer. It streams events as they occur to a remote Kafka queue. 
+
 
 ### Building
 ```
@@ -28,7 +30,7 @@ mvn clean install
 
 ### Kafka Producer Properties
 
-A typical Kafka Producer properties file might read as follows:
+A typical Kafka Producer properties can be specified via file that might read as follows:
 ```properties
 bootstrap.servers=a.domain.com:9092
 value.serializer=org.apache.kafka.common.serialization.StringSerializer
@@ -39,24 +41,9 @@ ssl.truststore.password=apassword
 ```
 A complete reference to the producer properties is [here](https://kafka.apache.org/documentation.html#producerconfigs).
 
-### Optional Extra Message Properties
-
-With load-balanced applications it can be useful to tag log messages with a server identifier. 
-By setting an *ExtraPropertiesFilePath* parameter any number of extra properties will be added to each message sent to the Kafka topic.
-```xml
-<appender name="KafkaStream" class="net.johnpage.kafka.KafkaLog4JAppender">
-		<param name="Topic" value="a-topic" />
-		<param name="KafkaProducerPropertiesFilePath" value="/kafka-producer.properties" />
-		<param name="ExtraPropertiesFilePath" value="/extra.properties" />
-</appender>
-```
-
 ### Built using:
-* [Log4J 1.2.8](https://logging.apache.org/log4j/1.2/)
+* [prlogging-1.2.14.jar](https://community1.pega.com/community/product-support/question/how-i-can-get-prpublicjar-and-prlogging-1214jar-include-my)
 * [Apache Kafka Producer 0.10](https://kafka.apache.org/)
-
-### Log4J Version 1.2.8
-We recommend using the [Log4j 2 KafkaAppender](http://logging.apache.org/log4j/2.x/manual/appenders.html#KafkaAppender) if your project uses Log4J 2.  
 
 ### Kafka Version
 Tested with Kafka 0.10. Should be backwards compatible with 0.90 and 0.82. These 3 versions rely on the following initialization of the Producer:
